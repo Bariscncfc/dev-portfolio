@@ -6,6 +6,7 @@ import Typical from "react-typical";
 import GithubIcon from "../components/icons/Github";
 import LinkedinIcon from "../components/icons/Linkedin";
 import TwitterIcon from "../components/icons/Twitter";
+import { getAllProjects } from '../functions/getAllProjects';
 
 
 const TypingAnimation = React.memo(
@@ -27,6 +28,15 @@ const TypingAnimation = React.memo(
   },
   (props, prevProps) => true
 );
+ 
+export const getStaticProps = async () => {
+  const projects = await getAllProjects();
+  return {
+    props: {
+      projects,
+    },
+  };
+}
  
 
 export default function Home() {
@@ -101,20 +111,20 @@ export default function Home() {
                   <p>
                     <span className="text-gray-500">//</span>{" "}
                     <span className="text-purple-300">Todo:</span> You can drag
-                    these cubes I'm really in love with them 🎈🎈
+                    these cubes I'm really in love with them
                   </p>
 
                   <div className="flex items-center space-x-4">
                     <div className="">
                       <p className="text-sm">
                         <span className="text-pink-300"> {">"} </span> const
-                        techWeb
-                        <span className="font-bold text-pink-300">2</span> =
+                        techJs
+                        <span className="font-bold text-gray-500">1</span> =
                         ["Reactjs", "Nextjs", "Graphql", "Nodejs"];{" "}
                       </p>
                       <p className="text-sm">
                         <span className="text-pink-300"> {">"} </span> const
-                        techWeb
+                        techCss
                         <span className="font-bold text-pink-300"></span> =
                         ["Tailwindcss", "Bootstrap", "SCSS/SASS"];{" "}
                       </p>
